@@ -1,9 +1,9 @@
 {% extends 'layouts/base.html' %} {% block title %} Crear usuario {% endblock %}
 {% block content %}
 
-<form action="{{ url_for('crear_usuarios') }}" method="POST">
+<form action="{{ url_for('modificar_usuarios') }}" method="POST">
   <div class="title-page">
-    <h1>Registrar usuario</h1>
+    <h1>Editar mi perfil</h1>
   </div>
 
   <div class="form-group">
@@ -26,7 +26,7 @@
     <input type="password" placeholder="Minimo 8 y maximo 15 caracteres" id="password" name="password" class="form-control" />
   </div>
   <div class="footer-page">
-    <a href="{{ url_for('usuarios') }}" class="btn">Volver</a>
+    <a href="{{ url_for('index') }}" class="btn">Volver</a>
     <button type="submit" class="btn btn-success">Guardar</button>
   </div>
 </form>

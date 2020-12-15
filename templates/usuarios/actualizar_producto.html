@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %} {% block title %} actualizar {% endblock %} {% block content %}
+<form action="{{ url_for('editar_producto',id=num[0])}}" method="POST">
+    <div class="title-page">
+        <h1> actualizar producto </h1>
+    </div>
+
+    <div class="form-group">
+        <label for="nombres">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" value="{{num[1]}}" />
+    </div>
+
+    <div class="form-group">
+        <label for="apellidos">Precio</label>
+        <input type="text" id="precio" name="precio" class="form-control" value="{{num[2]}}" />
+    </div>
+
+    <div class="form-group">
+        <label for="categoria">Categoria</label>
+        <input type="text" id="categoria" name="categoria" class="form-control" value="{{num[3]}}" />
+    </div>
+
+    <div class="footer-page">
+        <a href="{{ url_for('producto') }}" class="btn">Volver</a>
+        <button type="submit" class="btn btn-success">Editar</button>
+    </div>
+</form>
+{% endblock %}

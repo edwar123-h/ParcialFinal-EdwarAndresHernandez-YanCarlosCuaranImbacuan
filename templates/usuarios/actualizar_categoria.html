@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %} {% block title %} actualizar {% endblock %} {% block content %}
+<form action="{{ url_for('editar_categoria',id=num[0])}}" method="POST">
+    <div class="title-page">
+        <h1> actualizar categoria </h1>
+    </div>
+
+    <div class="form-group">
+        <label for="nombres">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" value="{{num[1]}}" />
+    </div>
+    <div class="footer-page">
+        <a href="{{ url_for('categoria') }}" class="btn">Volver</a>
+        <button type="submit" class="btn btn-success">Editar</button>
+    </div>
+</form>
+{% endblock %}

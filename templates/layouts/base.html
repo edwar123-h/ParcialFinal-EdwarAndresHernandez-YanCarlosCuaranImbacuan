@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %}</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/main.css') }}"
-    />
-  </head>
-  <body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+</head>
+
+<body>
     <nav class="nav-bar">
-      <ul>
-        <li>
-          <a href="{{ url_for('index') }}">Inicio</a>
-        </li>
-        <li>
-          <a href="{{ url_for('contacto') }}">Contacto</a>
-        </li>
-        <li>
-          <a href="{{ url_for('usuarios') }}">Usuarios</a>
-        </li>
-      </ul>
+        <ul>
+            <li>
+                <a href="{{ url_for('producto') }}">Productos</a>
+            </li>
+            <li>
+                <a href="{{ url_for('categoria') }}">Categorias</a>
+            </li>
+            <li>
+                <a href="{{ url_for('usuarios') }}">Mi perfil</a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">Finalizar Sesión</a>
+            </li>
+            
+        </ul>
     </nav>
+    {% with messages = get_flashed_messages(category_filter=['success']) %} {% if messages %}
+    <ul style="color: green; font-size: 22px;">
+        {% for message in messages %}
+        <li>
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %} {% with messages = get_flashed_messages(category_filter=['error']) %} {% if messages %}
+    <ul style="color: red; font-size: 22px;">
+        {% for message in messages %}
+        <li>
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+
     <div class="container">{% block content %}{% endblock %}</div>
-  </body>
+</body>
+
 </html>
